@@ -1,0 +1,103 @@
+{% include "base.html" %}
+<h1>
+    Hii {{nm}}, <br>
+         this is a profile age
+</h1>
+
+
+<!--add start-->
+<a class="btn btn-primary" role="button" href="{{url_for('addpost')}}" >
+    Add a New Project 
+</a>
+
+<a href="{{ url_for('static', filename='img/surya.webp') }}" class="btn btn-secondary" download>
+    <button>Download My Resume </button>
+  </a>
+
+<!--add end -->
+
+<!--demo table start -->
+
+
+<table class="table mx-4 my-5 " border="1">
+    <thead>
+      <tr>
+        <th class="col-md-0.5">Number </th>
+        <th class="col-md-0.5">Title </th>
+        <th class="col-md-6">Project Description </th>
+  
+        <th class="col-md-2">Website Link </th>
+        
+        <th class="col-md-1">Technology Used </th>
+        <th class="col-md-1">Domain </th>
+        <th class="col-md-1">Edit/Delete</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      {% for value in  posts %}
+      <tr>
+  
+        
+          <td> {{value.index}} </td>
+          <td> {{value.title}} </td>
+          <td > {{value.blog_content}} </td>
+  
+          <td> Web: <a href="{{value.website_link}}" target="_blank" >  {{value.website_link}} </a> <br><br>
+            Github : <a href="{{value.github}}" target="_blank" > {{value.github}} </a>
+  
+          </td> 
+  
+            
+  
+          <!--<td> <a href="{{value.github}}" target="_blank" > {{value.github}} </a>  </td> -->
+          
+          <td> {{value.tech_use}} </td>
+          <td> {{value.domain}} </td>
+  
+          <td> <a href="{{url_for('editpost',id=value.index)}} " class="btn btn-outline-warning" role="button" >Edit</a>
+               <a href="{{url_for('deletepost',id=value.index)}}" class="btn btn-outline-danger" role="button" >Delete</a>
+                
+           </td>
+       
+  
+  
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+<!-- demo table end-->
+<br><br><br><br><br>
+<!--
+<div class="container" style="width:600px">
+    <table border="1">
+        <thead>
+            <tr>
+                <td scope="col-2" >number</td>
+                <td scope="col-2" >title</td>
+                <td scope="col-2" >Blog Content</td>
+                
+                <td scope="col-2" >edit/delete</td>
+                
+
+            </tr>
+        </thead>
+        {% for value in posts %}
+         <tr>
+           <td> {{value.index}} </td>
+           <td> {{value.title}} </td>
+           <td> {{value.blog_content}} </td>
+           <td> <a href="{{url_for('editpost',id=value.index)}} ">edit</a>
+                <a href="{{url_for('deletepost',id=value.index)}} ">Delete</a>
+                 
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+</div>
+-->
+
+
+{% include "footer.html" %}

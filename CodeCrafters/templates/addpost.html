@@ -1,0 +1,32 @@
+{% include "base.html" %}
+
+<p>this is a addpost  page</p>
+
+
+    <h1>Add a New Project </h1>
+    <form action="/addpost" method="POST">
+        
+        <label for="username">Title:</label>
+        <input type="text" id="username" name="title" required><br><br>
+
+        <label for="username"> Project Description :</label>
+        <input type="text" id="username" name="blog_content" required><br><br>
+
+        <label for="email">Webiste Link :</label>
+        <input type="text" id="email" name="web" ><br><br>
+
+        <label for="password">Github Link:</label>
+        <input type="text" id="password" name="github" ><br><br>
+
+        <label for="confirm_password"> Technology Used :</label>
+        <input type="text" id="confirm_password" name="tech" required><br><br>
+        <label for="text">  Domain :</label>
+        <input type="text" id="confirm_password" name="domain" required><br><br>
+        
+
+        <input type="submit" value="Add This New Project">
+    </form>
+
+
+
+{% include "footer.html" %}

@@ -1,0 +1,17 @@
+{% include "base.html" %}
+
+<p>this is a EditPost page</p>
+<h2>Welcome  </h2>
+<a href="#">add new blog </a>
+
+<div class="container">
+    <form action="{{url_for('updatepost',id=account.index)}} " method="POST">  
+        <input type="text" value="{{account.title}} " name="title" >
+        <br><br>
+        <input type="text"  value="{{account.blog_content}} " name="blogdata" >
+        <br><br>
+        <input type="submit" value="Update" >
+    </form>
+</div>
+
+{% include "footer.html" %} 
