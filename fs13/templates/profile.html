@@ -1,0 +1,37 @@
+{% include "base.html" %}
+<h1>
+    Hii {{nm}}, <br>
+         this is a profile age
+</h1>
+
+<br><br><br><br><br>
+<div class="container" style="width:600px">
+    <table border="1">
+        <thead>
+            <tr>
+                <td scope="col-2" >number</td>
+                <td scope="col-2" >title</td>
+                <td scope="col-2" >Blog Content</td>
+                
+                <td scope="col-2" >edit/delete</td>
+                
+
+            </tr>
+        </thead>
+        {% for value in posts %}
+         <tr>
+           <td> {{value.index}} </td>
+           <td> {{value.title}} </td>
+           <td> {{value.blog_content}} </td>
+           <td> <a href="{{url_for('editpost',id=value.index)}} ">edit</a>
+                <a href="{{url_for('deletepost',id=value.index)}} ">Delete</a>
+                 
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+</div>
+
+{% include "footer.html" %}
